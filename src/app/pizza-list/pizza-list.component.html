@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Cantidad</th>
+            <th>Compra</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pizza of pizzas" [ngClass]="{'clearance':pizza.clearance}">
+            <td><img class="pizza_img" [src]="pizza.image" [alt]="pizza.name"></td>
+            <td>{{pizza.name}}</td>
+            <td class="descripcion_pizza">{{pizza.description}}</td>
+            <td>{{pizza.price | currency}}</td>
+            <td><span class="badge badge-danger" *ngIf="pizza.stock==0">No disponible</span></td>
+            <td class="boton_mas_menos">
+                <app-input-compra [(quantity)]="pizza.quantity" [cant_stock]="pizza.stock" *ngIf="pizza.stock" (cant_maxReached)="cant_maxReached($event)"></app-input-compra>
+            </td>  
+            <td>
+                <button class="btn btn-outline-primary" (click)="agregarCarrito(pizza)">Comprar</button>
+            </td>  
+        </tr>
+        
+    </tbody>
+</table>
