@@ -46,10 +46,5 @@ export class InputCompraComponent implements OnInit {
   
  
  
- /* if(pizza.quantity < 48 || pizza.quantity > 57 ){
- changeQuantity(event, pizza : Pizza):void{
-    if(pizza.quantity==0||pizza.quantity ==8 ){
-    event.preventDefault();}
-  }   VA EN EL INPUT DEL BOTON + - type="text" (keyup)="changeQuantity($event, pizza)" */
-
+ 
 }
